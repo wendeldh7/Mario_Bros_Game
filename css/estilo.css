@@ -1,0 +1,626 @@
+@font-face {
+  font-family: 'mario';
+  src: url("../fonts/SuperMario256.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'mario';
+  text-decoration: none;
+}
+
+@keyframes fade-up {
+  from {
+    transform: translate(0px, -200px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+}
+
+@keyframes move-animation {
+  from {
+    right: -80px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes bullet-animation {
+  from {
+    right: -80px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes bullet2-animation {
+  0% {
+    right: 0;
+    bottom: 10px;
+  }
+  20% {
+    bottom: 50px;
+  }
+  30% {
+    bottom: 10px;
+  }
+  50% {
+    bottom: 120px;
+  }
+  100% {
+    right: 100%;
+    bottom: 550px;
+  }
+}
+
+@keyframes clouds-animation {
+  from {
+    right: -400px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes pulo-animation {
+  0% {
+    bottom: 0;
+  }
+  30% {
+    bottom: 200px;
+  }
+  50% {
+    bottom: 200px;
+  }
+  90% {
+    bottom: 200px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes voar-animation {
+  0% {
+    bottom: 0;
+    left: 0;
+  }
+  15% {
+    bottom: 20%;
+    left: 50px;
+  }
+  30% {
+    bottom: 60%;
+    left: 150px;
+  }
+  50% {
+    bottom: 60%;
+    left: 250px;
+  }
+  70% {
+    bottom: 60%;
+    left: 250px;
+  }
+  80% {
+    bottom: 20%;
+    left: 50px;
+  }
+  100% {
+    bottom: 0;
+    left: 0;
+  }
+}
+
+@keyframes pulsar-animate {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.9);
+  }
+}
+
+.cenario {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 14px solid #00ae33;
+  background: linear-gradient(#0097d3, white);
+}
+
+.cenario.start .clouds {
+  animation: clouds-animation 20.5s infinite linear;
+}
+
+.cenario.start .clouds2 {
+  animation: clouds-animation 20.5s infinite linear 10.2s;
+}
+
+.cenario.start .moeda {
+  animation: move-animation 3s infinite linear;
+}
+
+.cenario.start .moeda2 {
+  animation: move-animation 3s infinite linear .5s;
+}
+
+.cenario.start .moeda3 {
+  animation: move-animation 3s infinite linear 1s;
+}
+
+.cenario.start .estrela1 {
+  animation: move-animation 2.5s infinite linear;
+}
+
+.cenario.start .estrela2 {
+  animation: move-animation 3s infinite linear .5s;
+}
+
+.cenario .header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cenario .header .wrapper-topo {
+  width: 750px;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: #fff;
+  border: solid 4px #0097d3;
+  box-shadow: 3px 3px #ffc900, 1px 0 0.4em #060606;
+  opacity: 80%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  position: relative;
+}
+
+.cenario .header .wrapper-topo .label-topo {
+  display: block;
+  text-align: center;
+}
+
+.cenario .header .wrapper-topo .label-topo .titulo {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #0097d3;
+}
+
+.cenario .header .wrapper-topo img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -40px;
+  margin: auto;
+}
+
+.cenario .header .wrapper-topo .controle {
+  display: flex;
+  gap: 10px;
+}
+
+.cenario .clouds {
+  width: 400px;
+  position: absolute;
+  top: 150px;
+  right: -400px;
+}
+
+.cenario .clouds2 {
+  width: 400px;
+  position: absolute;
+  top: 250px;
+  right: -400px;
+}
+
+.cenario .pipe {
+  position: absolute;
+  bottom: 0;
+  right: -90px;
+  width: 80px;
+}
+
+.cenario .bullet {
+  position: absolute;
+  bottom: 85px;
+  width: 90px;
+  right: -90px;
+}
+
+.cenario .bullet2 {
+  position: absolute;
+  bottom: 50%;
+  width: 90px;
+  right: -90px;
+}
+
+.cenario .mario {
+  position: absolute;
+  bottom: 0px;
+  width: 150px;
+}
+
+.cenario .mario-agachado {
+  width: 70px;
+  position: absolute;
+  left: 70px;
+  bottom: 0px;
+}
+
+.cenario .moeda {
+  position: absolute;
+  bottom: 250px;
+  right: -80px;
+}
+
+.cenario .estrela {
+  position: absolute;
+  width: 60px;
+  bottom: 60%;
+  right: -60px;
+}
+
+.cenario .game-over {
+  width: 80px;
+  left: 50px;
+}
+
+.cenario .pulo {
+  animation: pulo-animation .5s ease-out;
+}
+
+.cenario .voar {
+  animation: voar-animation 1.5s ease-in-out;
+}
+
+.cenario .sleep {
+  display: none;
+  width: 100%;
+  height: 100vh;
+}
+
+.cenario .sleep.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  animation: fade-up .5s forwards;
+}
+
+.cenario .sleep .contagem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border-radius: 50%;
+  border: solid 10px #ff201c;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.8);
+  font-size: 55px;
+  animation: pulsar-animate 1s infinite;
+}
+
+.cenario .sleep .regra-jogo {
+  margin-top: 50px;
+  width: 700px;
+  background-color: white;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.cenario .sleep .regra-jogo img {
+  display: block;
+  width: 100px;
+}
+
+.cenario .sleep .regra-jogo .bloco-regras {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: #f3f3f3;
+}
+
+.modal {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.desabilitar {
+  display: none;
+}
+
+.modal .modal-start {
+  width: 650px;
+  background-image: url("../images/background.jpg");
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 2px 2px 20px #ffc900;
+  padding: 50px;
+  border-radius: 30px;
+  display: none;
+}
+
+.modal .modal-start.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fade-up 1s forwards;
+}
+
+.modal .modal-start .titulo {
+  font-size: 36px;
+  text-align: center;
+  margin: 20px 0px;
+  color: #00ae33;
+  -webkit-text-stroke: 3px black;
+}
+
+.modal .modal-start .regra {
+  text-align: center;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.modal .modal-start .input-jogador {
+  width: 300px;
+  height: 50px;
+  border: solid 3px #0097d3;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 18px;
+  outline: none;
+}
+
+.modal .modal-game-over {
+  width: 650px;
+  height: 500px;
+  background-image: linear-gradient(#0097d3, #e7e7e7);
+  box-shadow: 2px 2px 20px #fb0202;
+  padding: 50px;
+  border-radius: 30px;
+  display: none;
+}
+
+.modal .modal-game-over.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fade-up 1s forwards;
+}
+
+.modal .modal-game-over .titulo {
+  font-size: 36px;
+  text-align: center;
+  margin: 20px 0px;
+  color: #ff201c;
+  -webkit-text-stroke: 3px black;
+}
+
+.modal .modal-game-over .img-game-over {
+  width: 300px;
+}
+
+.modal .modal-game-over .wrapper-btn {
+  display: flex;
+  gap: 30px;
+}
+
+.modal .modal-ranking {
+  width: 650px;
+  min-height: 500px;
+  max-height: 85%;
+  background-image: linear-gradient(#0097d3, #e2e2e2);
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 2px 2px 20px #0097d3;
+  padding: 50px;
+  border-radius: 30px;
+  display: none;
+}
+
+.modal .modal-ranking.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fade-up 1s forwards;
+}
+
+.modal .modal-ranking .titulo {
+  font-size: 36px;
+  text-align: center;
+  margin: 20px 0px;
+  color: #0da831;
+  -webkit-text-stroke: 3px black;
+}
+
+.modal .modal-ranking .wrapper-tabela {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.modal .modal-ranking .wrapper-tabela::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal .modal-ranking .wrapper-tabela::-webkit-scrollbar-thumb {
+  background: #0097d3;
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  border-right: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+.modal .modal-ranking .wrapper-tabela::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+.modal .modal-ranking .tabela-ranking {
+  text-align: center;
+  color: white;
+  -webkit-text-stroke: 2px black;
+  border-radius: 10px;
+}
+
+.modal .modal-ranking .tabela-ranking td {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.modal .modal-ranking .regra-pontuacao {
+  font-family: sans-serif;
+  font-style: italic;
+  color: white;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.modal .img-mario {
+  position: absolute;
+  right: -100px;
+  bottom: 0;
+  width: 150px;
+}
+
+.modal .img-mario.mario1, .modal .img-mario.mario3 {
+  left: -100px;
+}
+
+.modal .btn-modal {
+  background: none;
+  border: none;
+  width: 300px;
+  height: 70px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: flex-end;
+  background-color: #bd827c;
+  text-transform: uppercase;
+  padding: 15px;
+  margin: 30px 0px;
+  font-size: 34px;
+  font-weight: 600;
+  color: #fff;
+  transition: 1s;
+}
+
+.modal .btn-red-tr:not(:disabled) {
+  cursor: pointer;
+  background-color: #ff201c;
+}
+
+.modal .btn-red-tr:not(:disabled)::before {
+  position: absolute;
+  content: "";
+  border-top: 5px solid #ff3936;
+  border-left: 5px solid #ff3936;
+  border-right: 5px solid #ff0703;
+  border-bottom: 5px solid #ff0703;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  transition: 0.5s;
+}
+
+.modal .btn-red-tr:not(:disabled):hover {
+  box-shadow: 7px 7px #b50300, -7px -7px #ff8482;
+}
+
+.modal .btn-red-tr:not(:disabled):hover::before {
+  border: 0px;
+}
+
+.modal .btn-reiniciar,
+.modal .btn-ranking {
+  width: 200px;
+  height: 50px;
+  font-size: 25px;
+}
+
+.azul {
+  color: #0097d3;
+}
+
+.amarelo {
+  color: #ffc900;
+}
+
+.vermelho {
+  color: #ff201c;
+}
+
+.verde {
+  color: #00ae33;
+}
+
+.credito {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 20px;
+  background-color: rgba(0, 0, 0, 0.599);
+  border-radius: 8px;
+  font-size: 10px;
+  color: #ccc;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 1.5px;
+  font-family: sans-serif;
+  margin-top: 20px;
+}
+
+.credito .link {
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  font-family: sans-serif;
+  color: white;
+  font-style: normal;
+}
+
+.credito i {
+  margin: 0 5px;
+  color: white;
+  font-size: 14px;
+}
